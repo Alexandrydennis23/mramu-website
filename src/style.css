@@ -1,0 +1,71 @@
+/* MRAMU brand tokens — from MRAMU Brand Guidelines (Oct 2026) */
+:root {
+  --orange: #EDA941;       /* MRAMU Orange: emphasis / CTA / charts */
+  --grey: #848484;         /* MRAMU Grey */
+  --bg: #FFFBEB;           /* Background (warm white) */
+  --charcoal: #252525;     /* Editorial Charcoal: readable body text */
+  --amber: #9A591C;        /* Deep Amber: small orange-family text on light */
+  --soft: #F8E8C9;         /* Soft Amber */
+  --stone: #D9D3C9;       /* Warm Stone (swatch measures D9D3C9; the guide label reads D9D3D9) */        /* Warm Stone */
+  --line: rgba(37, 37, 37, .14);
+  --card: #FFFFFF;
+
+  /* Eiko + Editorial New are licensed (Pangram Pangram). Stand-ins load from fontsource;
+     drop the real files in /public/fonts and add @font-face to replace them. */
+  --f-display: "Eiko", "Playfair Display", Georgia, serif;
+  --f-edit: "Editorial New", "Instrument Serif", Georgia, serif;
+  --f-body: "Newsreader", Georgia, serif;
+
+  --pad: clamp(20px, 5vw, 80px);
+  --max: 1280px;
+  --ease: cubic-bezier(.2, .7, .1, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0; background: var(--bg); color: var(--charcoal);
+  font-family: var(--f-body); font-size: 19px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+::selection { background: var(--orange); color: var(--charcoal); }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.eyebrow {
+  font-family: var(--f-body); font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 18px; font-weight: 500;
+}
+.on-dark .eyebrow { color: var(--orange); }
+.h-display { font-family: var(--f-display); font-weight: 800; letter-spacing: -.02em; line-height: 1.02; margin: 0; }
+.h-edit { font-family: var(--f-edit); font-weight: 400; letter-spacing: -.015em; line-height: 1.02; margin: 0; }
+.h-edit em, .h-display em { font-style: italic; color: var(--orange); }
+.light-h em { color: var(--orange); }
+.sec { padding: clamp(72px, 10vw, 140px) 0; position: relative; }
+.on-dark { background: var(--charcoal); color: var(--bg); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px;
+  font-family: var(--f-body); font-size: 16px; font-weight: 500; cursor: pointer;
+  border: 1.5px solid transparent; transition: transform .35s var(--ease), background .25s, color .25s, border-color .25s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--solid { background: var(--orange); color: var(--charcoal); }
+.btn--solid:hover { background: #f3b755; }
+.btn--line { border-color: var(--charcoal); background: transparent; }
+.btn--line:hover { background: var(--charcoal); color: var(--bg); }
+.on-dark .btn--line { border-color: rgba(255,251,235,.5); color: var(--bg); }
+.on-dark .btn--line:hover { background: var(--bg); color: var(--charcoal); }
+.arrow { transition: transform .3s var(--ease); }
+.btn:hover .arrow, .card:hover .arrow { transform: translateX(4px); }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .arrow { transition: none; }
+}

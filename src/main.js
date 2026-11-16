@@ -1,0 +1,13 @@
+import { createApp } from 'vue'
+import '@fontsource/playfair-display/700.css'
+import '@fontsource/playfair-display/800.css'
+import '@fontsource/playfair-display/900.css'
+import '@fontsource/playfair-display/800-italic.css'
+import '@fontsource/instrument-serif/400.css'
+import '@fontsource/instrument-serif/400-italic.css'
+import '@fontsource/newsreader/400.css'
+import '@fontsource/newsreader/500.css'
+import '@fontsource/newsreader/400-italic.css'
+import './style.css'
+import App from './App.vue'
+createApp(App).mount('#app')
